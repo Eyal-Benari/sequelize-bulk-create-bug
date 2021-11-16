@@ -1,8 +1,14 @@
 Demonstrates a bug with Model.bulkCreate with {individualHooks: true, include: SubModel}
 
-To run this demonstration please run postgres on localhost:5432 with username: "postgres" and password: "postgres"
+Create local postgres instance (localhost:5432, username: "postgres", password: "postgres")
+```bash
+docker-compose up
+```
+
 Then run the following commands:
+```bash
 npm i
 sequelize db:create
 sequelize db:migrate
 npm start
+```
