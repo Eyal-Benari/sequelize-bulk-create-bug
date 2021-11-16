@@ -9,7 +9,7 @@ class MyModel extends Model {
 		return {
 			timestamps: false,
 			sequelize: db,
-			underscored: true,
+			underscored: true
 		};
 	}
 
@@ -18,12 +18,12 @@ class MyModel extends Model {
 			id: {
 				type: DataTypes.UUID,
 				defaultValue: DataTypes.UUIDV4,
-				primaryKey: true,
+				primaryKey: true
 			},
 			data: {
 				type: DataTypes.STRING,
-				allowNull: false,
-			},
+				allowNull: false
+			}
 		};
 	}
 
@@ -33,5 +33,5 @@ class MyModel extends Model {
 }
 
 module.exports = {
-	MyModel,
+	MyModel
 };

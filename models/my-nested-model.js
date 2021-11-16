@@ -9,7 +9,7 @@ class MyNestedModel extends Model {
 		return {
 			timestamps: false,
 			sequelize: db,
-			underscored: true,
+			underscored: true
 		};
 	}
 
@@ -18,11 +18,11 @@ class MyNestedModel extends Model {
 			id: {
 				type: DataTypes.UUID,
 				defaultValue: DataTypes.UUIDV4,
-				primaryKey: true,
+				primaryKey: true
 			},
 			value: {
 				type: DataTypes.STRING,
-				allowNull: false,
+				allowNull: false
 			}
 		};
 	}
@@ -33,5 +33,5 @@ class MyNestedModel extends Model {
 }
 
 module.exports = {
-	MyNestedModel,
+	MyNestedModel
 };

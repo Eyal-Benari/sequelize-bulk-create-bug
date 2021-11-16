@@ -1,7 +1,7 @@
 const { DataTypes, Sequelize } = require("sequelize");
 
 module.exports = {
-	up: async (queryInterface) => {
+	up: async queryInterface => {
 		await queryInterface.createTable("my_nested_models", {
 			id: {
 				type: DataTypes.UUID,
@@ -13,14 +13,14 @@ module.exports = {
 				type: DataTypes.STRING,
 				allowNull: false
 			},
-            my_model_id: {
+			my_model_id: {
 				type: DataTypes.UUID,
 				allowNull: false,
 				references: { model: "my_models", key: "id" }
-            }
+			}
 		});
 	},
-	down: async (queryInterface) => {
+	down: async queryInterface => {
 		await queryInterface.dropTable("my_nested_models");
 	}
 };

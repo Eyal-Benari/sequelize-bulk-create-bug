@@ -15,14 +15,14 @@ db.authenticate()
 		const records = [
 			{
 				data: "test1",
-				MyNestedModels: [{ value: "value1" }, { value: "value2" }],
+				MyNestedModels: [{ value: "value1" }, { value: "value2" }]
 			},
-			{ data: "test2" },
+			{ data: "test2" }
 		];
 
 		try {
 			await MyModel.bulkCreate(records, {
-				include: ["MyNestedModels"],
+				include: ["MyNestedModels"]
 			});
 			console.log("Successfully created bulk without individual hooks");
 		} catch (err) {
@@ -31,20 +31,15 @@ db.authenticate()
 		try {
 			await MyModel.bulkCreate(records, {
 				individualHooks: true,
-				include: ["MyNestedModels"],
+				include: ["MyNestedModels"]
 			});
 			console.log("Successfully created bulk with individual hooks");
 		} catch (err) {
 			console.log("Failed to create bulk with individual hooks", err);
 		}
 	})
-	.catch((err) => {
+	.catch(err => {
 		console.log("[sequelize] Failed to authenticate with postgres", err);
 		return shutdown(1);
 	})
-	.catch((err) =>
-		console.log(
-			"[sequelize] Failed to shutdown after authentication error",
-			err
-		)
-	);
+	.catch(err => console.log("[sequelize] Failed to shutdown after authentication error", err));
